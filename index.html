@@ -464,8 +464,8 @@
 
 <script>
   // Solid header after the hero.
-  const top = document.getElementById("top");
-  const onScroll = () => top.classList.toggle("solid", window.scrollY > 60);
+  const topBar = document.getElementById("top");
+  const onScroll = () => topBar.classList.toggle("solid", window.scrollY > 60);
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
 
