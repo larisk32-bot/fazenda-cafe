@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fazenda — семейное кафе в Нягани</title>
+<meta name="description" content="Fazenda — семейное пространство в Нягани: европейская кухня, завтраки, детская комната, летняя веранда, доставка. ул. Ленина, 22. Рейтинг 5,0 на Яндекс Картах.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f7f2e9;
+    --sand: #ebe0cd;
+    --oak: #b08455;
+    --oak-deep: #7a5531;
+    --olive: #4f5b2c;
+    --olive-soft: #6b7b3c;
+    --terracotta: #a3502a;
+    --terracotta-hover: #8a4122;
+    --ink: #2b2620;
+    --ink-soft: #5d5448;
+    --white: #ffffff;
+    --radius: 22px;
+    --shadow: 0 18px 40px -22px rgba(60, 40, 20, .45);
+    --display: "Cormorant Garamond", Georgia, serif;
+    --body: "Manrope", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: var(--body); font-size: 17px; line-height: 1.6; color: var(--ink); background: var(--cream); }
+  img, video { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--terracotta); outline-offset: 3px; border-radius: 6px; }
+  .wrap { width: min(1180px, 100% - 40px); margin-inline: auto; }
+  .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--olive-soft); }
+  h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.05; margin: 0; }
+  h2 { font-size: clamp(38px, 5vw, 60px); }
+  .lead { color: var(--ink-soft); font-size: 18px; max-width: 58ch; }
+  section { padding: clamp(64px, 9vw, 120px) 0; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 26px; border-radius: 999px; font-weight: 700; font-size: 16px; text-decoration: none; cursor: pointer; border: 0; transition: background .2s ease, transform .2s ease, color .2s ease; }
+  .btn svg { width: 20px; height: 20px; }
+  .btn-primary { background: var(--terracotta); color: var(--white); }
+  .btn-primary:hover { background: var(--terracotta-hover); transform: translateY(-1px); }
+  .btn-ghost { background: rgba(255,255,255,.14); color: var(--white); border: 1.5px solid rgba(255,255,255,.6); backdrop-filter: blur(6px); }
+  .btn-ghost:hover { background: rgba(255,255,255,.26); }
+
+  /* Header */
+  .top { position: fixed; inset: 0 0 auto; z-index: 20; transition: background .25s ease, box-shadow .25s ease; }
+  .top.solid { background: rgba(247, 242, 233, .94); backdrop-filter: blur(10px); box-shadow: 0 1px 0 rgba(0,0,0,.06); }
+  .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .logo { font-family: var(--display); font-weight: 700; font-size: 28px; letter-spacing: .28em; text-decoration: none; color: var(--white); }
+  .logo small { display: block; font-family: var(--body); font-size: 10px; letter-spacing: .3em; font-weight: 600; opacity: .85; margin-top: -2px; }
+  .top.solid .logo { color: var(--olive); }
+  .nav { display: flex; gap: 28px; align-items: center; }
+  .nav a { color: var(--white); text-decoration: none; font-weight: 600; font-size: 15px; padding: 10px 0; }
+  .top.solid .nav a { color: var(--ink); }
+  .nav a:hover { color: var(--sand); }
+  .top.solid .nav a:hover { color: var(--terracotta); }
+  .nav .btn { padding: 0 20px; min-height: 44px; }
+  .top.solid .nav .btn { color: var(--white); }
+  @media (max-width: 860px) { .nav a:not(.btn) { display: none; } }
+
+  /* Hero */
+  .hero { position: relative; min-height: 100svh; display: grid; align-items: end; color: var(--white); overflow: hidden; padding: 0; }
+  .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.06); animation: drift 18s ease-out forwards; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(30,22,14,.35) 0%, rgba(30,22,14,.15) 40%, rgba(30,22,14,.78) 100%); }
+  .hero .wrap { position: relative; z-index: 1; padding: 140px 0 72px; }
+  .hero .eyebrow { color: #e9dcc4; }
+  .hero h1 { font-size: clamp(54px, 9vw, 120px); margin: 14px 0 18px; letter-spacing: .01em; }
+  .hero p { font-size: 19px; max-width: 46ch; color: #f1e8da; margin: 0 0 30px; }
+  .hero .actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .badges { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 38px; font-size: 15px; color: #f1e8da; }
+  .badges span { display: inline-flex; align-items: center; gap: 8px; }
+  .badges svg { width: 18px; height: 18px; color: #e9c48e; }
+  @keyframes drift { to { transform: scale(1); } }
+
+  /* About */
+  .about .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(32px, 6vw, 84px); align-items: center; }
+  .about h2 { margin: 14px 0 22px; }
+  .about-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .about-photos img { border-radius: var(--radius); box-shadow: var(--shadow); aspect-ratio: 3/4; object-fit: cover; width: 100%; }
+  .about-photos img:nth-child(2) { margin-top: 48px; }
+  .facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 30px; }
+  .fact { background: var(--white); border-radius: 18px; padding: 18px 20px; display: flex; gap: 14px; align-items: flex-start; }
+  .fact svg { width: 26px; height: 26px; color: var(--olive-soft); flex: none; margin-top: 2px; }
+  .fact b { display: block; font-size: 16px; }
+  .fact span { font-size: 14.5px; color: var(--ink-soft); }
+  @media (max-width: 900px) { .about .wrap { grid-template-columns: 1fr; } .facts { grid-template-columns: 1fr; } }
+
+  /* Film */
+  .film { background: var(--olive); color: var(--cream); }
+  .film .head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; margin-bottom: 34px; }
+  .film .eyebrow { color: #c9d19f; }
+  .film h2 { margin-top: 12px; }
+  .film video { width: 100%; aspect-ratio: 16/9; border-radius: var(--radius); background: #1f2412; box-shadow: 0 30px 60px -30px rgba(0,0,0,.6); }
+
+  /* Menu */
+  .menu { background: var(--white); }
+  .menu .head { text-align: center; margin-bottom: 36px; }
+  .menu .head h2 { margin: 12px 0 14px; }
+  .menu .head .lead { margin-inline: auto; }
+  .tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 34px; }
+  .tab { min-height: 44px; padding: 0 20px; border-radius: 999px; border: 1.5px solid var(--sand); background: var(--cream); font: 600 15px var(--body); color: var(--ink); cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
+  .tab:hover { border-color: var(--oak); }
+  .tab[aria-selected="true"] { background: var(--olive); border-color: var(--olive); color: var(--white); }
+  .panel { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px 48px; max-width: 920px; margin-inline: auto; }
+  .panel[hidden] { display: none; }
+  .dish { display: flex; align-items: baseline; gap: 12px; padding: 14px 0; border-bottom: 1px dashed var(--sand); }
+  .dish .name { font-weight: 600; }
+  .dish .dots { flex: 1; }
+  .dish .price { font-family: var(--display); font-weight: 700; font-size: 22px; color: var(--oak-deep); white-space: nowrap; }
+  .menu-note { text-align: center; color: var(--ink-soft); font-size: 14.5px; margin-top: 26px; }
+  @media (max-width: 720px) { .panel { grid-template-columns: 1fr; } }
+
+  /* Dishes strip */
+  .plates { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 56px; }
+  .plates figure { margin: 0; position: relative; border-radius: 18px; overflow: hidden; aspect-ratio: 4/5; }
+  .plates img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+  .plates figure:hover img { transform: scale(1.05); }
+  .plates figcaption { position: absolute; left: 12px; bottom: 12px; background: rgba(247,242,233,.92); padding: 6px 12px; border-radius: 999px; font-size: 13.5px; font-weight: 600; }
+  @media (max-width: 860px) { .plates { grid-template-columns: repeat(2, 1fr); } }
+
+  /* Kids */
+  .kids .wrap { display: grid; grid-template-columns: .95fr 1.05fr; gap: clamp(32px, 6vw, 84px); align-items: center; }
+  .kids h2 { margin: 14px 0 20px; }
+  .kids-photos { display: grid; grid-template-columns: 1.3fr 1fr; gap: 14px; }
+  .kids-photos img { border-radius: var(--radius); object-fit: cover; width: 100%; height: 100% !important; box-shadow: var(--shadow); }
+  .kids-photos img:first-child { grid-row: span 2; aspect-ratio: 3/4; }
+  .checks { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 12px; }
+  .checks li { display: flex; gap: 12px; align-items: flex-start; }
+  .checks svg { width: 22px; height: 22px; color: var(--terracotta); flex: none; margin-top: 3px; }
+  @media (max-width: 900px) { .kids .wrap { grid-template-columns: 1fr; } }
+
+  /* Gallery */
+  .gallery { background: var(--sand); }
+  .gallery .head { margin-bottom: 30px; }
+  .gallery h2 { margin-top: 12px; }
+  .grid { columns: 4 240px; column-gap: 14px; }
+  .grid button { display: block; width: 100%; margin: 0 0 14px; padding: 0; border: 0; border-radius: 16px; overflow: hidden; cursor: zoom-in; background: none; break-inside: avoid; }
+  .grid img { width: 100%; transition: transform .45s ease, filter .3s; }
+  .grid button:hover img { transform: scale(1.04); filter: brightness(1.05); }
+  .lightbox { position: fixed; inset: 0; background: rgba(20,16,12,.92); display: none; place-items: center; z-index: 50; padding: 24px; }
+  .lightbox.open { display: grid; }
+  .lightbox img { max-height: 88vh; border-radius: 14px; }
+  .lightbox button { position: absolute; top: 18px; right: 18px; width: 48px; height: 48px; border-radius: 50%; border: 0; background: var(--cream); cursor: pointer; display: grid; place-items: center; }
+  .lightbox button svg { width: 22px; height: 22px; }
+
+  /* Reviews */
+  .reviews .head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; margin-bottom: 34px; }
+  .rating { display: flex; align-items: center; gap: 16px; }
+  .rating .num { font-family: var(--display); font-size: 72px; font-weight: 700; line-height: 1; color: var(--olive); }
+  .stars { display: flex; gap: 3px; color: #d39b2a; }
+  .stars svg { width: 20px; height: 20px; }
+  .rating small { display: block; color: var(--ink-soft); font-size: 14px; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .card { background: var(--white); border-radius: var(--radius); padding: 28px; box-shadow: 0 10px 30px -24px rgba(60,40,20,.5); }
+  .card p { margin: 14px 0 18px; }
+  .card b { font-size: 15px; }
+  .award { display: inline-flex; align-items: center; gap: 10px; background: var(--white); border-radius: 999px; padding: 10px 18px; font-weight: 600; font-size: 15px; }
+  .award svg { width: 22px; height: 22px; color: var(--terracotta); }
+  @media (max-width: 900px) { .cards { grid-template-columns: 1fr; } }
+
+  /* Visit */
+  .visit { background: var(--ink); color: var(--cream); }
+  .visit .wrap { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(32px, 6vw, 72px); align-items: stretch; }
+  .visit .eyebrow { color: #e9c48e; }
+  .visit h2 { margin: 12px 0 28px; }
+  .info { display: grid; gap: 22px; margin-bottom: 34px; }
+  .info > div { display: flex; gap: 16px; }
+  .info svg { width: 24px; height: 24px; color: #e9c48e; flex: none; margin-top: 3px; }
+  .info b { display: block; font-size: 17px; }
+  .info span, .info a { display: block; color: #d8cdbb; font-size: 15.5px; }
+  .map { border-radius: var(--radius); overflow: hidden; min-height: 380px; background: #3a342c; }
+  .map iframe { width: 100%; height: 100%; min-height: 380px; border: 0; }
+  @media (max-width: 900px) { .visit .wrap { grid-template-columns: 1fr; } }
+  footer { background: #211d18; color: #a99d8b; font-size: 14px; padding: 26px 0; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10z"/><path d="M2 21c0-3 1.9-5.4 5.2-6.1C9.6 14.4 12 13 13 12"/></symbol>
+  <symbol id="i-baby" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h.01M15 12h.01M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M6.3 17.7l-1.4 1.4M19.1 4.9l-1.4 1.4"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 12.9 17 22l-5-3-5 3 1.5-9.1"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+</svg>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="logo" href="#hero" aria-label="Fazenda — на главную">FAZENDA<small>СЕМЕЙНОЕ ПРОСТРАНСТВО</small></a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#about">О нас</a>
+      <a href="#menu">Меню</a>
+      <a href="#kids">Детям</a>
+      <a href="#gallery">Фото</a>
+      <a href="#visit">Контакты</a>
+      <a class="btn btn-primary" href="tel:+73467241881"><svg aria-hidden="true"><use href="#i-phone"/></svg>Забронировать</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="hero">
+    <img src="img/hero.webp" alt="Светлый зал Fazenda: плетёные кресла, деревянные столы и абажуры из ротанга" fetchpriority="high">
+    <div class="wrap">
+      <div class="eyebrow">Нягань · ул. Ленина, 22</div>
+      <h1>Fazenda</h1>
+      <p>Семейное кафе, где уютно и взрослым, и детям: авторская европейская кухня, ароматный кофе, детская комната и летняя веранда.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="tel:+73467241881"><svg aria-hidden="true"><use href="#i-phone"/></svg>Забронировать стол</a>
+        <a class="btn btn-ghost" href="#menu">Смотреть меню</a>
+      </div>
+      <div class="badges">
+        <span><svg aria-hidden="true"><use href="#i-star"/></svg>5,0 · 346 оценок на Яндекс Картах</span>
+        <span><svg aria-hidden="true"><use href="#i-award"/></svg>«Хорошее место 2026»</span>
+        <span><svg aria-hidden="true"><use href="#i-clock"/></svg>Открыто до 21:00</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="eyebrow">Семейное пространство</div>
+        <h2>Тепло дерева, свет и вкусная еда</h2>
+        <p class="lead">Fazenda — уютное место, где можно провести время всей семьёй. Светлый зал с живыми растениями и плетёной мебелью, авторское меню, завтраки и десерты, лавандовый латте и чайные сеты — сюда хочется возвращаться.</p>
+        <div class="facts">
+          <div class="fact"><svg aria-hidden="true"><use href="#i-leaf"/></svg><div><b>Европейская кухня</b><span>Пицца, пасты, салаты, горячее и завтраки</span></div></div>
+          <div class="fact"><svg aria-hidden="true"><use href="#i-baby"/></svg><div><b>Детская комната</b><span>И комната матери и ребёнка</span></div></div>
+          <div class="fact"><svg aria-hidden="true"><use href="#i-sun"/></svg><div><b>Летняя веранда</b><span>С пледами для прохладных вечеров</span></div></div>
+          <div class="fact"><svg aria-hidden="true"><use href="#i-bag"/></svg><div><b>Доставка и навынос</b><span>Кофе с собой, оплата картой</span></div></div>
+        </div>
+      </div>
+      <div class="about-photos reveal">
+        <img src="img/int1.webp" alt="Уголок зала с растением и плетёными креслами" loading="lazy" width="960" height="1280">
+        <img src="img/sign.webp" alt="Деревянная табличка «Семейное пространство Fazenda» и чайная пара" loading="lazy" width="971" height="1280">
+      </div>
+    </div>
+  </section>
+
+  <section class="film" id="film">
+    <div class="wrap">
+      <div class="head reveal">
+        <div>
+          <div class="eyebrow">Fazenda в движении</div>
+          <h2>Загляните к нам</h2>
+        </div>
+        <a class="btn btn-ghost" href="tel:+73467241881"><svg aria-hidden="true"><use href="#i-phone"/></svg>+7 (34672) 4-18-81</a>
+      </div>
+      <video class="reveal" src="promo.mp4" poster="img/int2.webp" controls playsinline preload="metadata" aria-label="Промо-ролик кафе Fazenda"></video>
+    </div>
+  </section>
+
+  <section class="menu" id="menu">
+    <div class="wrap">
+      <div class="head reveal">
+        <div class="eyebrow">Меню</div>
+        <h2>Что у нас готовят</h2>
+        <p class="lead">Средний чек около 1000 ₽. Есть детское меню и завтраки.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Разделы меню">
+        <button class="tab" role="tab" aria-selected="true" aria-controls="p-pizza" id="t-pizza">Пицца</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-salad" id="t-salad">Салаты</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-hot" id="t-hot">Горячее</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-pasta" id="t-pasta">Пасты и Wok</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-soup" id="t-soup">Супы</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-burger" id="t-burger">Бургеры и стритфуд</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-kids" id="t-kids">Детское</button>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-pizza" aria-labelledby="t-pizza">
+        <div class="dish"><span class="name">Маргарита</span><span class="dots"></span><span class="price">650 ₽</span></div>
+        <div class="dish"><span class="name">Панчикен</span><span class="dots"></span><span class="price">750 ₽</span></div>
+        <div class="dish"><span class="name">Пепперони</span><span class="dots"></span><span class="price">710 ₽</span></div>
+        <div class="dish"><span class="name">Мама Чоли</span><span class="dots"></span><span class="price">710 ₽</span></div>
+        <div class="dish"><span class="name">4 сыра</span><span class="dots"></span><span class="price">810 ₽</span></div>
+        <div class="dish"><span class="name">Цезарь</span><span class="dots"></span><span class="price">760 ₽</span></div>
+        <div class="dish"><span class="name">Морская</span><span class="dots"></span><span class="price">850 ₽</span></div>
+        <div class="dish"><span class="name">Мясная</span><span class="dots"></span><span class="price">820 ₽</span></div>
+        <div class="dish"><span class="name">Пиде пепперони</span><span class="dots"></span><span class="price">370 ₽</span></div>
+        <div class="dish"><span class="name">Пиде с сыром</span><span class="dots"></span><span class="price">380 ₽</span></div>
+        <div class="dish"><span class="name">Пиде с говядиной</span><span class="dots"></span><span class="price">520 ₽</span></div>
+        <div class="dish"><span class="name">Пиде с лососем и шпинатом</span><span class="dots"></span><span class="price">580 ₽</span></div>
+      </div>
+      <div class="panel" role="tabpanel" id="p-salad" aria-labelledby="t-salad" hidden>
+        <div class="dish"><span class="name">Греческий с гранатом</span><span class="dots"></span><span class="price">430 ₽</span></div>
+        <div class="dish"><span class="name">Салат Айоли</span><span class="dots"></span><span class="price">490 ₽</span></div>
+        <div class="dish"><span class="name">Деревенский с тунцом</span><span class="dots"></span><span class="price">490 ₽</span></div>
+        <div class="dish"><span class="name">С курицей и сыром скаморца</span><span class="dots"></span><span class="price">490 ₽</span></div>
+        <div class="dish"><span class="name">Тартар из тунца с винной заправкой</span><span class="dots"></span><span class="price">650 ₽</span></div>
+        <div class="dish"><span class="name">С говядиной по-азиатски</span><span class="dots"></span><span class="price">640 ₽</span></div>
+        <div class="dish"><span class="name">Цезарь с курицей</span><span class="dots"></span><span class="price">430 ₽</span></div>
+        <div class="dish"><span class="name">С говядиной и баклажанами</span><span class="dots"></span><span class="price">660 ₽</span></div>
+        <div class="dish"><span class="name">С морским гребешком и соусом манго</span><span class="dots"></span><span class="price">510 ₽</span></div>
+        <div class="dish"><span class="name">С креветками и соусом гуакамоле-манго</span><span class="dots"></span><span class="price">540 ₽</span></div>
+        <div class="dish"><span class="name">С хрустящими баклажанами и фетой</span><span class="dots"></span><span class="price">490 ₽</span></div>
+        <div class="dish"><span class="name">С курицей и сыром гауда</span><span class="dots"></span><span class="price">570 ₽</span></div>
+      </div>
+      <div class="panel" role="tabpanel" id="p-hot" aria-labelledby="t-hot" hidden>
+        <div class="dish"><span class="name">Кайзер</span><span class="dots"></span><span class="price">620 ₽</span></div>
+        <div class="dish"><span class="name">Медальоны из говяжьей вырезки с овощами</span><span class="dots"></span><span class="price">990 ₽</span></div>
+        <div class="dish"><span class="name">Свиные рёбра с картофелем фри</span><span class="dots"></span><span class="price">830 ₽</span></div>
+        <div class="dish"><span class="name">Филе судака в панировке</span><span class="dots"></span><span class="price">930 ₽</span></div>
+        <div class="dish"><span class="name">Стейк тунца</span><span class="dots"></span><span class="price">850 ₽</span></div>
+        <div class="dish"><span class="name">Стейк лосося с соусом капучино</span><span class="dots"></span><span class="price">1490 ₽</span></div>
+        <div class="dish"><span class="name">Жареный картофель с грибами</span><span class="dots"></span><span class="price">530 ₽</span></div>
+        <div class="dish"><span class="name">Бефстроганов из говяжьих щёчек</span><span class="dots"></span><span class="price">870 ₽</span></div>
+        <div class="dish"><span class="name">Свинина в кисло-сладком соусе</span><span class="dots"></span><span class="price">630 ₽</span></div>
+        <div class="dish"><span class="name">Свинина в медово-горчичном соусе</span><span class="dots"></span><span class="price">590 ₽</span></div>
+      </div>
+      <div class="panel" role="tabpanel" id="p-pasta" aria-labelledby="t-pasta" hidden>
+        <div class="dish"><span class="name">Тальятелле с лососем и брокколи</span><span class="dots"></span><span class="price">590 ₽</span></div>
+        <div class="dish"><span class="name">Паста Карбонара</span><span class="dots"></span><span class="price">460 ₽</span></div>
+        <div class="dish"><span class="name">Феттучине с куриным филе и грибами</span><span class="dots"></span><span class="price">490 ₽</span></div>
+        <div class="dish"><span class="name">Wok с курицей</span><span class="dots"></span><span class="price">430 ₽</span></div>
+        <div class="dish"><span class="name">Wok с говядиной</span><span class="dots"></span><span class="price">590 ₽</span></div>
+        <div class="dish"><span class="name">Wok с креветками</span><span class="dots"></span><span class="price">450 ₽</span></div>
+        <div class="dish"><span class="name">Wok со свининой</span><span class="dots"></span><span class="price">510 ₽</span></div>
+      </div>
+      <div class="panel" role="tabpanel" id="p-soup" aria-labelledby="t-soup" hidden>
+        <div class="dish"><span class="name">Борщ с говядиной</span><span class="dots"></span><span class="price">540 ₽</span></div>
+        <div class="dish"><span class="name">Том Ям</span><span class="dots"></span><span class="price">650 ₽</span></div>
+        <div class="dish"><span class="name">Грибной крем-суп</span><span class="dots"></span><span class="price">450 ₽</span></div>
+        <div class="dish"><span class="name">Куриный суп с фрикадельками</span><span class="dots"></span><span class="price">370 ₽</span></div>
+      </div>
+      <div class="panel" role="tabpanel" id="p-burger" aria-labelledby="t-burger" hidden>
+        <div class="dish"><span class="name">Бургер с говядиной</span><span class="dots"></span><span class="price">540 ₽</span></div>
+        <div class="dish"><span class="name">Бургер с курицей</span><span class="dots"></span><span class="price">490 ₽</span></div>
+        <div class="dish"><span class="name">Бургер с говядиной и сырной котлетой</span><span class="dots"></span><span class="price">630 ₽</span></div>
+        <div class="dish"><span class="name">Бургер с рёберной свининой</span><span class="dots"></span><span class="price">530 ₽</span></div>
+        <div class="dish"><span class="name">Клаб-сэндвич с копчёной курицей</span><span class="dots"></span><span class="price">570 ₽</span></div>
+        <div class="dish"><span class="name">Клаб-сэндвич с индейкой и чеддером</span><span class="dots"></span><span class="price">540 ₽</span></div>
+        <div class="dish"><span class="name">Клаб-сэндвич с лососем шеф-посола</span><span class="dots"></span><span class="price">610 ₽</span></div>
+      </div>
+      <div class="panel" role="tabpanel" id="p-kids" aria-labelledby="t-kids" hidden>
+        <div class="dish"><span class="name">Овощные палочки</span><span class="dots"></span><span class="price">180 ₽</span></div>
+        <div class="dish"><span class="name">Сырная котлета</span><span class="dots"></span><span class="price">230 ₽</span></div>
+        <div class="dish"><span class="name">Куриные котлетки</span><span class="dots"></span><span class="price">290 ₽</span></div>
+        <div class="dish"><span class="name">Варёные или жареные сосиски</span><span class="dots"></span><span class="price">330 ₽</span></div>
+        <div class="dish"><span class="name">Микс снеков</span><span class="dots"></span><span class="price">410 ₽</span></div>
+        <div class="dish"><span class="name">Жареные фрикадельки</span><span class="dots"></span><span class="price">260 ₽</span></div>
+      </div>
+      <p class="menu-note">Цены по данным Яндекс Карт (обновлено 3 августа). Актуальное меню уточняйте по телефону.</p>
+
+      <div class="plates">
+        <figure class="reveal"><img src="img/f_waffle.webp" alt="Вафля с яйцом пашот и лососем" loading="lazy"><figcaption>Завтраки</figcaption></figure>
+        <figure class="reveal"><img src="img/f_shrimp.webp" alt="Салат с креветками" loading="lazy"><figcaption>Салаты</figcaption></figure>
+        <figure class="reveal"><img src="img/f_pasta.webp" alt="Чёрная паста с морепродуктами" loading="lazy"><figcaption>Пасты</figcaption></figure>
+        <figure class="reveal"><img src="img/f_pide.webp" alt="Пиде с сыром" loading="lazy"><figcaption>Пиде</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="kids" id="kids">
+    <div class="wrap">
+      <div class="kids-photos reveal">
+        <img src="img/shake.webp" alt="Ребёнок пьёт молочный коктейль" loading="lazy">
+        <img src="img/kids.webp" alt="Детская комната с мольбертом и столиками" loading="lazy">
+        <img src="img/mom.webp" alt="Комната матери и ребёнка с пеленальным столиком" loading="lazy">
+      </div>
+      <div class="reveal">
+        <div class="eyebrow">Для семей с детьми</div>
+        <h2>Пока вы отдыхаете — дети играют</h2>
+        <p class="lead">Мы продумали всё, чтобы с малышами было спокойно и удобно.</p>
+        <ul class="checks">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Игровая комната с игрушками, карандашами и раскрасками</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Комната матери и ребёнка: салфетки, пелёнки, подгузники</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Детское меню и молочные коктейли</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Внимательный персонал, который любит маленьких гостей</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <div class="wrap">
+      <div class="head reveal"><div class="eyebrow">Фото</div><h2>Атмосфера Fazenda</h2></div>
+      <div class="grid" id="grid">
+        <button aria-label="Увеличить фото зала"><img src="img/int2.webp" alt="Зал у окон" loading="lazy"></button>
+        <button aria-label="Увеличить фото блюда"><img src="img/f_burrata.webp" alt="Салат с бурратой и латте" loading="lazy"></button>
+        <button aria-label="Увеличить фото официантки"><img src="img/serve.webp" alt="Официантка несёт заказ" loading="lazy"></button>
+        <button aria-label="Увеличить фото декора"><img src="img/flowers.webp" alt="Стена с сухоцветами" loading="lazy"></button>
+        <button aria-label="Увеличить фото блюда"><img src="img/f_breakfast.webp" alt="Завтрак с омлетом и кашей" loading="lazy"></button>
+        <button aria-label="Увеличить фото зала"><img src="img/int3.webp" alt="Диванная зона с декором" loading="lazy"></button>
+        <button aria-label="Увеличить фото блюда"><img src="img/f_salmon.webp" alt="Салат с лососем" loading="lazy"></button>
+        <button aria-label="Увеличить фото напитков"><img src="img/coffee.webp" alt="Капучино на деревянном подносе" loading="lazy"></button>
+        <button aria-label="Увеличить фото зала"><img src="img/xmas.webp" alt="Новогодний зал с ёлкой" loading="lazy"></button>
+        <button aria-label="Увеличить фото блюда"><img src="img/f_pancake.webp" alt="Блины с бананом и латте" loading="lazy"></button>
+        <button aria-label="Увеличить фото зала"><img src="img/int4.webp" alt="Зал с растениями" loading="lazy"></button>
+        <button aria-label="Увеличить фото блюда"><img src="img/f_fish.webp" alt="Рыба с гранатовым соусом" loading="lazy"></button>
+        <button aria-label="Увеличить фото напитков"><img src="img/f_tea.webp" alt="Чайный сет с вареньем" loading="lazy"></button>
+        <button aria-label="Увеличить фото блюда"><img src="img/f_pizza.webp" alt="Пицца" loading="lazy"></button>
+        <button aria-label="Увеличить фото зала"><img src="img/int5.webp" alt="Уютный зал с абажурами" loading="lazy"></button>
+        <button aria-label="Увеличить фото блюда"><img src="img/f_salad.webp" alt="Тёплый салат с говядиной" loading="lazy"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <div class="wrap">
+      <div class="head reveal">
+        <div>
+          <div class="eyebrow">Отзывы гостей</div>
+          <div class="rating" style="margin-top:12px">
+            <div class="num">5,0</div>
+            <div>
+              <div class="stars" aria-label="5 из 5"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></div>
+              <small>346 оценок · 153 отзыва на Яндекс Картах</small>
+            </div>
+          </div>
+        </div>
+        <span class="award"><svg aria-hidden="true"><use href="#i-award"/></svg>Награда «Хорошее место 2026»</span>
+      </div>
+      <div class="cards">
+        <article class="card reveal"><div class="stars" aria-label="5 из 5"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></div><p>«Лучшее заведение города, можно прийти с детьми, хорошая детская зона. Очень красиво, интерьер очень располагающий. Кухня на уровне, все что брали, все очень понравилось».</p><b>Мирослава</b></article>
+        <article class="card reveal"><div class="stars" aria-label="5 из 5"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></div><p>«Обслуживание на высоте, атмосфера очень приятная, блюда приготовили очень быстро и очень вкусно. Жаль, что желудок небезразмерный — не попробовать всё».</p><b>Ольга</b></article>
+        <article class="card reveal"><div class="stars" aria-label="5 из 5"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></div><p>«Очень вкусная кухня, девочки следят за столами, быстро убирают пустую посуду. Еду приносят достаточно быстро. Для посетителей с детьми есть детское меню».</p><b>Алёна</b></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="eyebrow">Ждём в гости</div>
+        <h2>Как нас найти</h2>
+        <div class="info">
+          <div><svg aria-hidden="true"><use href="#i-pin"/></svg><div><b>ул. Ленина, 22, Нягань</b><span>Рядом с остановкой «Торговый дом»</span></div></div>
+          <div><svg aria-hidden="true"><use href="#i-phone"/></svg><div><b><a href="tel:+73467241881">+7 (34672) 4-18-81</a></b><span>Бронь столов, доставка, заказы навынос</span></div></div>
+          <div><svg aria-hidden="true"><use href="#i-clock"/></svg><div><b>Ежедневно, до 21:00</b><span>Вечером после 18:00 бывает многолюдно — лучше бронировать</span></div></div>
+        </div>
+        <a class="btn btn-primary" href="tel:+73467241881"><svg aria-hidden="true"><use href="#i-phone"/></svg>Позвонить и забронировать</a>
+        <a class="btn btn-ghost" style="margin-left:10px" href="https://yandex.ru/maps/org/fazenda/113837074336/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Маршрут</a>
+      </div>
+      <div class="map reveal">
+        <iframe src="https://yandex.ru/map-widget/v1/?oid=113837074336&amp;ol=biz&amp;z=16" title="Fazenda на Яндекс Картах" loading="lazy" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© Fazenda — семейное пространство, Нягань</span><span>ул. Ленина, 22 · +7 (34672) 4-18-81</span></div></footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр фото">
+  <button type="button" id="lb-close" aria-label="Закрыть"><svg aria-hidden="true"><use href="#i-x"/></svg></button>
+  <img id="lb-img" alt="">
+</div>
+
+<script>
+  // Solid header after the hero.
+  const top = document.getElementById("top");
+  const onScroll = () => top.classList.toggle("solid", window.scrollY > 60);
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  // Menu tabs with arrow-key support.
+  const tabs = [...document.querySelectorAll(".tab")];
+  function select(tab) {
+    tabs.forEach(t => {
+      const on = t === tab;
+      t.setAttribute("aria-selected", on);
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+    });
+  }
+  tabs.forEach((t, i) => {
+    t.tabIndex = i === 0 ? 0 : -1;
+    t.addEventListener("click", () => select(t));
+    t.addEventListener("keydown", e => {
+      const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+      if (!d) return;
+      const next = tabs[(i + d + tabs.length) % tabs.length];
+      next.focus();
+      select(next);
+    });
+  });
+
+  // Gallery lightbox.
+  const lb = document.getElementById("lightbox"), lbImg = document.getElementById("lb-img");
+  let opener = null;
+  document.querySelectorAll("#grid button").forEach(b => b.addEventListener("click", () => {
+    const img = b.querySelector("img");
+    lbImg.src = img.src; lbImg.alt = img.alt; opener = b;
+    lb.classList.add("open"); document.getElementById("lb-close").focus();
+  }));
+  const close = () => { lb.classList.remove("open"); opener && opener.focus(); };
+  document.getElementById("lb-close").addEventListener("click", close);
+  lb.addEventListener("click", e => { if (e.target === lb) close(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && lb.classList.contains("open")) close(); });
+
+  // Reveal on scroll.
+  const io = new IntersectionObserver(entries => entries.forEach(en => {
+    if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+  }), { threshold: .12 });
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+</script>
+</body>
+</html>
